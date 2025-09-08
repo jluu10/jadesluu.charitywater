@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Follow the Flow of Your Impact | charity: water</title>
+  <style>
+    /* ===== Brand tokens ===== */
+    :root{
+      --navy:#0b3a67;
+      --yellow:#ffd34e;
+      --ink:#ffffff;
+      --muted:#c9d7ee;
+    }
+    /* ===== Base ===== */
+    *{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0;
+      font-family: "Avenir Next","Proxima Nova",Inter,system-ui,-apple-system,
+                   "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.35;
+      color:var(--ink);
+      background:var(--navy);
+    }
+    a{ text-decoration:none; color:inherit }
+    /* ===== Layout (left copy | right image) ===== */
+    .hero{
+      height:100vh;
+      display:grid;
+      grid-template-columns: 1fr 1fr; 
+      gap: 0;     
+    }
+    /* Left panel */
+    .panel{
+      padding: clamp(24px, 5vw, 64px);
+      display:flex;
+      align-items:center;         /* vertical center */
+      justify-content:center;     /* horizontal center */
+      background:var(--navy);
+      text-align:center;
+    }
+    .panel-inner{ width:min(560px,100%) }
+    .eyebrow{
+      letter-spacing:.08em; text-transform:uppercase; font-weight:500;
+      font-size:.82rem; opacity:.95; margin:0 0 .5rem;
+    }
+    h1{
+      margin:.5rem 0 1.2rem; font-weight:600;
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+    }
+    .sub{
+      color:var(--muted);
+      font-size: clamp(.96rem, 1.4vw, 1.06rem);
+      max-width:44ch; margin:0 auto 2.2rem;
+    }
+    /* Buttons */
+    .cta-row{ display:flex; gap:16px; flex-wrap:wrap; justify-content:center }
+    .btn{
+      display:inline-block;
+      padding:14px 22px;
+      border-radius:14px;
+      font-weight:700;
+      text-align:center;
+      border:2px solid transparent;
+      transition: transform .18s ease, box-shadow .18s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,.16);
+    }
+    .btn:hover{                 /* lift on hover */
+      transform: translateY(-4px);
+      box-shadow: 0 10px 22px rgba(0,0,0,.26);
+    }
+    .btn:active{                /* press on click */
+      transform: translateY(2px);
+      box-shadow: 0 2px 6px rgba(0,0,0,.22);
+    }
+    .btn-primary{ background:var(--yellow); color:#161616 }
+    .btn-secondary{ background:transparent; border-color:var(--yellow); color:#fff }
+    /* Right image */
+    .media{
+      position:relative;
+      width: 100%;         /* full width of its grid column */
+      height: 100%;        /* full height of its grid row */
+      background:
+        url("https://cdn2.dropmarkusercontent.com/52043/a0ee6da6d6c0b14400f8c80618aebb6265ff6908bd0562e881adcb5420af230e/charity_water_Tanzania_TaraShupePhotography_0074.jpg?Expires=1757351470&Signature=SIf3Z6nDUUWaUq0qufRZz7SLP1JtWBtQU00k-WLv1iPoZ0SlFwm4RGdAvEVEu8ozUTsyLBORSGwNEdenDVyIp7oPlFZ7AuUNuz2T9CwbLLrvv~rXuQAIl46lOThw4WqKBe2kK4KE0z5KN82JinFld9jyceqgoSP3VVXRiUV-21UiklTi9ZTfbZjHGN1H3jy4HeSnu6PCV3dP2aJuhTk7SWiINN6yY5Upb3QR4n5jqBLi5H5Lb7s9EAF8jTyTDUdZw-I~p-~iHHFOAYLHYYzleiRCIf~~kYi0NBY0fflp1YnODmhXHldR3hkwg25l0SGupuMuoUUXK-m3PAKCz4tkEQ__&Key-Pair-Id=APKAITQYWVEN757ZA4KQ");
+    background-position: center;
+    background-size: cover;        /* image always covers the box */
+    background-repeat: no-repeat;
+    overflow: hidden;
+    }
+    /* Subtle darkening so the white wordmark is readable */
+    .media::before{
+      content:""; position:absolute; inset:0;
+      background: rgba(0, 0, 0, 0.23);  /* tweak 0.20–0.40 to taste */
+      z-index:1;
+    }
+    /* Logo overlay (image only) */
+    .logo-tag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+      background: rgba(255, 255, 255, 0);
+      border: 1px solid rgba(255, 255, 255, 0);
+      backdrop-filter: blur(3px);
+      padding: 10px 14px;
+      border-radius: 12px;
+    }
+    .logo-img{
+      height: auto; width:auto; 
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0));
+    }
+    /* ===== Responsive ===== */
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr }  /* stack */
+      .media{ height:100vh; }
+      .cta-row .btn{ width:100% }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="hero" role="main">
+    <!-- LEFT: copy -->
+    <section class="panel">
+      <div class="panel-inner">
+        <p class="eyebrow">Clean Water Changes Everything</p>
+        <h1><em>Follow the<br>Flow of Your Impact</em></h1>
+        <p class="sub">
+          100% of your donation funds clean water projects you can see, measure, and trust.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#donate">Donate Today. Track Your Impact.</a>
+          <a class="btn btn-secondary" href="#campus">Start a Campus Fundraiser</a>
+        </div>
+      </div>
+    </section>
+    <!-- RIGHT: image with logo overlay -->
+    <aside class="media" aria-label="Smiling child enjoying clean water">
+      <div class="logo-tag">
+        <!-- Use your local file (works on GitHub Pages too).
+             If your filename differs, update the path below. -->
+        <img class="logo-img"
+             src="image2.png"
+             alt="charity: water logo">
+      </div>
+    </aside>
+  </main>
+
+</body>
+</html>
