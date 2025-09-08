@@ -1,5 +1,2 @@
-jadesluu.charitywater/
-├── index.html
-├── style.css   
-└── images/
-    └── logo.png
+git add images/logo.png
+git commit -m "Add charity water logo image"
